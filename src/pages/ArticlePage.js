@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import NotFoundPage from './NotFoundPage';
 import articles from './article-content';
 
 const ArticlePage = () => {
