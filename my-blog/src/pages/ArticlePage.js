@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import NotFoundPage from './NotFoundPage';
+import CommentsList from '../components/CommentsList';
 import articles from './article-content';
 
 const ArticlePage = () => {
     const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
+    const { articleId } = useParams();
 
     useEffect(() => {
-        setArticleInfo({ upvotes: 3, comments: [] });
-    });
+        const loadArticleInfo = async () => {
+            const response = await axios.get(`/api/articles/${articleId}`);
+            const newArticleInfo = response.data;
+            setArticleInfo(newArticleInfo);
+        }
 
-    const { articleId } = useParams();
+        loadArticleInfo();
+    }, []);
+
     const article = articles.find(article => article.name === articleId);
 
     if (!article) {
@@ -24,6 +32,7 @@ const ArticlePage = () => {
         {article.content.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
         ))}
+        <CommentsList comments={articleInfo.comments} />
         </>
     );
 }
