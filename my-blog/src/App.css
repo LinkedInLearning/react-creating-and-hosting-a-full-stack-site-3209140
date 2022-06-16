@@ -34,15 +34,15 @@ nav ul {
 
 nav li {
   display: inline-block;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 nav a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  padding: 16px 32px;
+  padding: 24px 32px;
 }
 
 nav a:hover {
@@ -53,7 +53,7 @@ nav a:hover {
 #page-body {
   max-width: 700px;
   margin: auto;
-  padding-top: 64px;
+  padding-top: 72px;
 }
 
 .article-list-item {
@@ -76,7 +76,7 @@ nav a:hover {
   margin-bottom: 16px;
 }
 
-#add-comment-form input, textarea {
+input, textarea {
   display: block;
   width: 300px;
   padding: 8px;
@@ -85,6 +85,12 @@ nav a:hover {
   font-size: 18px;
   border: 2px solid black;
   margin-bottom: 16px;
+}
+
+.error {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: pink;
 }
 
 #add-comment-form button {
@@ -99,4 +105,10 @@ nav a:hover {
 .comment {
   border-bottom: 2px solid black;
   padding: 16px;
+}
+
+.nav-right {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
